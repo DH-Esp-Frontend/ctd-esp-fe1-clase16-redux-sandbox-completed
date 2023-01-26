@@ -1,16 +1,14 @@
-import React, {FC, useState} from "react";
+import {FC, useState} from "react";
 import Personaje from "../types/personaje.types";
 import {buscarPersonajes} from "../services/personaje.services";
-import {TypedUseSelectorHook, useSelector as useReduxSelector} from "react-redux";
-import {IRootState} from "../store/store";
 import {useQuery} from "react-query";
+import { useAppSelector } from "../redux/hooks";
 
-export const useSelector: TypedUseSelectorHook<IRootState> = useReduxSelector
 
 const Grilla:FC = () => {
-
-    const buscador = useSelector(state => state.personajes.busqueda)
+    const buscador = useAppSelector(state => state.busqueda)
     const [personajes, setPersonajes] = useState<Personaje[]>([]);
+    
     useQuery<Personaje[]>(["buscarPersonajes",buscador],
         () => buscarPersonajes(buscador),
         {

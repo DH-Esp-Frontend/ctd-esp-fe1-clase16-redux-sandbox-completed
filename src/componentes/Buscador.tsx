@@ -1,11 +1,9 @@
-import React, {FC} from "react";
-import {useDispatch} from "react-redux";
-import {buscarPersonajes} from "../actions/personajesActions";
+import { FC } from "react";
+import { useAppDispatch } from "../redux/hooks";
+import { buscarPersonajes } from "../redux/Slices/personajesSlice";
 
-const Buscador:FC = () => {
-
-    // No olvidemos agregar el hook de redux para obtener el acceso al objeto dispatch
-    const dispatch = useDispatch();
+const Buscador: FC = () => {
+    const dispatch = useAppDispatch();
 
     return <div className="App-table">
         <div>

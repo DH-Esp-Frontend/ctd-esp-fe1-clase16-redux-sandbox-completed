@@ -1,9 +1,9 @@
 import './App.css';
 import Buscador from './componentes/Buscador';
 import Grilla from "./componentes/Grilla";
-import {store} from "./store/store";
 import {Provider} from "react-redux";
 import {QueryClient, QueryClientProvider} from "react-query";
+import store from './redux/store';
 
 function App() {
     const client = new QueryClient();
